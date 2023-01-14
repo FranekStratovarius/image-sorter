@@ -31,4 +31,4 @@ jobs:
           prerelease: false
           title: "Build"
           files: |
-            dist/*
+            *.tar.gz
