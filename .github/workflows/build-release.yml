@@ -9,25 +9,21 @@ on:
 
 # workflow tasks
 jobs:
-  generate:
-    name: Generate cross-platform builds
+  release:
+    name: Release
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2
       - name: Generate build files
         uses: thatisuday/go-cross-build@v1
         with:
-            platforms: 'linux/amd64, linux/arm, linux/arm64, darwin/amd64, darwin/arm64, windows/amd64'
+            platforms: 'linux/amd64, linux/arm, linux/arm64, darwin/amd64, windows/amd64'
             package: 'src'
             name: 'image-sorter'
             compress: 'true'
             dest: 'dist'
-  release:
-    name: "Release"
-    runs-on: "ubuntu-latest"
-
-    steps:
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
