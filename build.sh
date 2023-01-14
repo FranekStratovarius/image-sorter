@@ -1,0 +1,1 @@
+cd src/ && go build . && mv src ../image_converter
