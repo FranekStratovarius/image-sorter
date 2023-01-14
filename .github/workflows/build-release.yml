@@ -26,5 +26,8 @@ jobs:
             dest: 'dist'
       - uses: ncipollo/release-action@v1
         with:
-          tag: "latest"
-          artifacts: "dist/*"
+          tag: latest
+          artifacts: dist/*
+          token: ${{ secrets.GITHUB_TOKEN }}
+          allowUpdates: true
+          replacesArtifacts: true
