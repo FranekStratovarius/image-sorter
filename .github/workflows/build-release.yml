@@ -26,4 +26,5 @@ jobs:
             dest: 'dist'
       - uses: ncipollo/release-action@v1
         with:
+          tag: "latest"
           artifacts: "dist/*"
